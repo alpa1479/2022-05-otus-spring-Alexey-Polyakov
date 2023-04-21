@@ -1,0 +1,6 @@
+order, question, answers
+1,csv.question-1,csv.question-1.answer-1;csv.question-1.answer-2@true;csv.question-1.answer-3;csv.question-1.answer-4;csv.question-1.answer-5
+2,csv.question-2,csv.question-2.answer-1@true;csv.question-2.answer-2
+3,csv.question-3,csv.question-3.answer-1;csv.question-3.answer-2;csv.question-3.answer-3@true
+4,csv.question-4,csv.question-4.answer-1;csv.question-4.answer-2;csv.question-4.answer-3@true;csv.question-4.answer-4
+5,csv.question-5,csv.question-5.answer-1;csv.question-5.answer-2@true;csv.question-5.answer-3;csv.question-5.answer-4

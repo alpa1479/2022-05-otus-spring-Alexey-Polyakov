@@ -1,0 +1,6 @@
+question, answers
+How many OOP principles exist?,one;three;five;seven;nine
+Is it possible to have multiple inheritance in Java?,no;yes
+What design pattern name is correct?,Designer;Element;Adapter
+How many primitive types java has?,five;four;eight;seven
+Which class do all classes in Java extend?,Proxy;Object;Class;Entity

@@ -1,0 +1,29 @@
+DROP TABLE IF EXISTS genres;
+DROP TABLE IF EXISTS authors;
+DROP TABLE IF EXISTS books;
+DROP TABLE IF EXISTS books_authors;
+
+CREATE TABLE genres
+(
+    id   BIGSERIAL NOT NULL PRIMARY KEY,
+    name VARCHAR(64)
+);
+
+CREATE TABLE authors
+(
+    id   BIGSERIAL NOT NULL PRIMARY KEY,
+    name VARCHAR(64)
+);
+
+CREATE TABLE books
+(
+    id          BIGSERIAL NOT NULL PRIMARY KEY,
+    title       VARCHAR(128),
+    genre_id    BIGINT NOT NULL REFERENCES genres(id) ON DELETE CASCADE
+);
+
+CREATE TABLE books_authors
+(
+   book_id           BIGINT NOT NULL REFERENCES books(id) ON DELETE CASCADE,
+   author_id         BIGINT NOT NULL REFERENCES authors(id) ON DELETE CASCADE
+);

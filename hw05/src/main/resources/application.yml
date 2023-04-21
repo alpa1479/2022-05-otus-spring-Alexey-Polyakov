@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/library
+    username: usr
+    password: pwd
+  main:
+    allow-circular-references: true
+logging:
+  level:
+    org:
+      springframework:
+        jdbc:
+          core: TRACE

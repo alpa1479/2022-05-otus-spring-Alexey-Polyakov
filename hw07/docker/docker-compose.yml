@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+
+  postgres:
+    container_name: postgres
+    hostname: postgres
+    build: ./postgres
+    command: postgres
+    environment:
+      POSTGRES_USER: usr
+      POSTGRES_PASSWORD: pwd
+      POSTGRES_DB: library
+    ports:
+      - "5432:5432"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+
+  pgadmin:
+    container_name: pgadmin
+    hostname: pgadmin
+    build: ./pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: adm@domain.com
+      PGADMIN_DEFAULT_PASSWORD: adm
+    depends_on:
+      - postgres
+    ports:
+      - "9090:80"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M

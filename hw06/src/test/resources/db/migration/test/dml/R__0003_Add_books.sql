@@ -1,0 +1,16 @@
+INSERT INTO books(title, genre_id)
+VALUES ('The Oblong Box',                  (select id from genres where name = 'drama')),
+       ('Skin Deep',                       (select id from genres where name = 'horror')),
+       ('Summer Catch',                    (select id from genres where name = 'thriller')),
+       ('The Missionaries',                (select id from genres where name = 'action')),
+       ('9 Star Hotel (Malon 9 Kochavim)', (select id from genres where name = 'detective')),
+       ('Street Kings',                    (select id from genres where name = 'sci-fi')),
+       ('Squeeze',                         (select id from genres where name = 'crime')),
+       ('Old San Francisco',               (select id from genres where name = 'documentary')),
+       ('Pauly Shore Is Dead',             (select id from genres where name = 'adventure')),
+       ('Wayward Bus',                     (select id from genres where name = 'fantasy')),
+       ('Brimstone and Treacle',           (select id from genres where name = 'sci-fi')),
+       ('The Walking Stick',               (select id from genres where name = 'action')),
+       ('Eight Below',                     (select id from genres where name = 'thriller')),
+       ('Riders of the Purple Sage',       (select id from genres where name = 'documentary')),
+       ('Harry and Tonto',                 (select id from genres where name = 'fantasy'));

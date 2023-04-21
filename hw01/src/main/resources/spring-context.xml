@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util
+        https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <util:constant id="out" static-field="java.lang.System.out"/>
+
+    <bean id="resourceFileReader" class="ru.otus.spring.hw01.services.impl.ResourceAsStreamFileReader"/>
+
+    <bean id="questionsParser" class="ru.otus.spring.hw01.services.impl.CsvQuestionsParser">
+        <constructor-arg name="questionsSeparator" value=","/>
+        <constructor-arg name="answersSeparator" value=";"/>
+    </bean>
+
+    <bean id="questionsReader" class="ru.otus.spring.hw01.services.impl.CsvFileReader">
+        <constructor-arg name="filepath" value="/questions.csv"/>
+        <constructor-arg name="questionsParser" ref="questionsParser"/>
+        <constructor-arg name="resourceFileReader" ref="resourceFileReader"/>
+    </bean>
+
+    <bean id="questionsWriter" class="ru.otus.spring.hw01.services.impl.ConsoleWriter">
+        <constructor-arg name="out" ref="out"/>
+    </bean>
+
+    <bean id="studentsSurveyApplicationListener"
+          class="ru.otus.spring.hw01.listener.StudentsSurveyApplicationListener">
+        <constructor-arg name="questionsReader" ref="questionsReader"/>
+        <constructor-arg name="questionsWriter" ref="questionsWriter"/>
+    </bean>
+
+</beans>

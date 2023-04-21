@@ -1,0 +1,16 @@
+survey:
+  locale: "eng"
+  questions:
+    filepath: "/questions.csv"
+  answers:
+    count-to-pass: 4
+  parser:
+    questions-separator: ","
+    answers-separator: ";"
+    correct-marker-separator: "@"
+
+spring:
+  messages:
+    fallback-to-system-locale: false
+  main:
+    allow-circular-references: true
