@@ -1,0 +1,25 @@
+spring:
+  main:
+    lazy-initialization: true
+    allow-circular-references: true
+  mongodb:
+    embedded:
+      version: 4.4.11
+  data:
+    mongodb:
+      port: 8081
+      database: library
+  shell:
+    interactive:
+      enabled: false
+mongock:
+  change-logs-scan-package:
+    - ru.otus.spring.hw08.mongock.changelog.TestDatabaseChangelog
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          mongodb:
+            core:
+              MongoTemplate: DEBUG

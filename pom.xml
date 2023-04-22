@@ -17,6 +17,7 @@
         <module>hw05</module>
         <module>hw06</module>
         <module>hw07</module>
+        <module>hw08</module>
     </modules>
 
     <properties>
@@ -28,6 +29,7 @@
         <spring-shell-starter.version>2.0.1.RELEASE</spring-shell-starter.version>
         <commons-collections4.version>4.4</commons-collections4.version>
         <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
+        <mongock.version>4.1.17</mongock.version>
     </properties>
 
     <dependencyManagement>
@@ -46,6 +48,13 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>${spring-boot-dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.github.cloudyrock.mongock</groupId>
+                <artifactId>mongock-bom</artifactId>
+                <version>${mongock.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
