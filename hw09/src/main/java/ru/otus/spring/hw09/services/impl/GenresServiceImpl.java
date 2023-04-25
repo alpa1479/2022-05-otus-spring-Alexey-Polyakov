@@ -1,0 +1,54 @@
+package ru.otus.spring.hw09.services.impl;
+
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import ru.otus.spring.hw09.converters.Converter;
+import ru.otus.spring.hw09.domain.Genre;
+import ru.otus.spring.hw09.dto.GenreDto;
+import ru.otus.spring.hw09.repository.GenreRepository;
+import ru.otus.spring.hw09.repository.cascade.GenreRepositoryCascade;
+import ru.otus.spring.hw09.services.GenresService;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+@RequiredArgsConstructor
+public class GenresServiceImpl implements GenresService {
+
+    private final GenreRepository genreRepository;
+    private final GenreRepositoryCascade genreRepositoryCascade;
+
+    private final Converter<Genre, GenreDto> toGenreDtoConverter;
+    private final Converter<GenreDto, Genre> toGenreConverter;
+
+    @Override
+    public List<GenreDto> findAll() {
+        return toGenreDtoConverter.convert(genreRepository.findAll());
+    }
+
+    @Override
+    public Optional<Genre> findByName(String name) {
+        return genreRepository.findByName(name);
+    }
+
+    @Override
+    public Optional<GenreDto> findById(String id) {
+        return genreRepository.findById(id).flatMap(toGenreDtoConverter::convert);
+    }
+
+    @Override
+    public void save(GenreDto genre) {
+        toGenreConverter.convert(genre).ifPresent(genreRepository::save);
+    }
+
+    @Override
+    public Genre save(Genre genre) {
+        return genreRepository.save(genre);
+    }
+
+    @Override
+    public void deleteById(String id) {
+        genreRepositoryCascade.cascadeDeleteById(id);
+    }
+}
