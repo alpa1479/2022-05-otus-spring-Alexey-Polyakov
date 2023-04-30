@@ -1,0 +1,21 @@
+spring:
+  mongodb:
+    embedded:
+      version: 4.4.11
+  data:
+    mongodb:
+      port: 8081
+      database: library
+
+mongock:
+  change-logs-scan-package:
+    - ru.otus.spring.hw09.mongock.changelog.TestDatabaseChangelog
+
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          mongodb:
+            core:
+              MongoTemplate: DEBUG
