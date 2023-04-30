@@ -50,8 +50,8 @@ public class Book {
         this.id = id;
     }
 
-    public String getGenreName() {
-        return ofNullable(genre).map(Genre::getName).orElse(null);
+    public String getGenreId() {
+        return ofNullable(genre).map(Genre::getId).orElse(null);
     }
 
     public List<String> getAuthorIds() {

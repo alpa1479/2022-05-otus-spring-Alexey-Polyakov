@@ -24,13 +24,9 @@ public class SaveBookDtoToBookConverter implements Converter<SaveBookDto, Book> 
         return Book.builder()
                 .id(saveBookDto.getId())
                 .title(saveBookDto.getTitle())
-                .genre(mapGenre(saveBookDto.getGenreName()))
+                .genre(Genre.withId(saveBookDto.getGenreId()))
                 .authors(mapAuthors(saveBookDto.getAuthorIds()))
                 .build();
-    }
-
-    private Genre mapGenre(String genreName) {
-        return new Genre(genreName);
     }
 
     private List<Author> mapAuthors(List<String> authorIds) {

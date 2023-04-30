@@ -10,9 +10,7 @@ public interface GenresService {
 
     List<GenreDto> findAll();
 
-    Optional<Genre> findByName(String name);
-
-    Optional<GenreDto> findById(String id);
+    Optional<Genre> findById(String id);
 
     void save(GenreDto genre);
 

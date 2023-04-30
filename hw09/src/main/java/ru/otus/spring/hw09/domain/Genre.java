@@ -21,4 +21,8 @@ public class Genre {
     public Genre(String name) {
         this.name = name;
     }
+
+    public static Genre withId(String id) {
+        return new Genre(id, null);
+    }
 }

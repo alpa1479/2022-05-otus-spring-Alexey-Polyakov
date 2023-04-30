@@ -8,6 +8,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import ru.otus.spring.hw09.dto.*;
 import ru.otus.spring.hw09.services.AuthorsService;
 import ru.otus.spring.hw09.services.BooksService;
+import ru.otus.spring.hw09.services.GenresService;
 
 import java.util.List;
 import java.util.Optional;
@@ -29,6 +30,9 @@ class BookControllerTest {
 
     @MockBean
     private AuthorsService authorsService;
+
+    @MockBean
+    private GenresService genresService;
 
     @Autowired
     private MockMvc mvc;

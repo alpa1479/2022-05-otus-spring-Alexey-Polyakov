@@ -70,7 +70,7 @@ class BooksServiceImplTest {
     @DisplayName("should call BookRepository to save book")
     void shouldCallBookRepositoryToCreateBook() {
         Book book = new Book("book", new Genre("1"));
-        SaveBookDto saveBookDto = SaveBookDto.builder().title("book").genreName("1").build();
+        SaveBookDto saveBookDto = SaveBookDto.builder().title("book").genreId("1").build();
 
         when(toBookConverter.convert(saveBookDto)).thenReturn(of(book));
         booksService.create(saveBookDto);

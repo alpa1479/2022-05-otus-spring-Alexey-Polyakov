@@ -28,13 +28,8 @@ public class GenresServiceImpl implements GenresService {
     }
 
     @Override
-    public Optional<Genre> findByName(String name) {
-        return genreRepository.findByName(name);
-    }
-
-    @Override
-    public Optional<GenreDto> findById(String id) {
-        return genreRepository.findById(id).flatMap(toGenreDtoConverter::convert);
+    public Optional<Genre> findById(String id) {
+        return genreRepository.findById(id);
     }
 
     @Override

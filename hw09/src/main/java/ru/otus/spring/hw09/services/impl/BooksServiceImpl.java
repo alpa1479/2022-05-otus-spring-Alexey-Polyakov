@@ -90,8 +90,8 @@ public class BooksServiceImpl implements BooksService {
     }
 
     private void setGenre(Book book) {
-        String genreName = book.getGenreName();
-        Genre genre = genresService.findByName(genreName).orElseGet(() -> genresService.save(new Genre(genreName)));
+        String genreId = book.getGenreId();
+        Genre genre = genresService.findById(genreId).orElse(null);
         book.setGenre(genre);
     }
 

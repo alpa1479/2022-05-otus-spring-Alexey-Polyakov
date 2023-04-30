@@ -15,6 +15,6 @@ public class SaveBookDto {
 
     private String id;
     private String title;
-    private String genreName;
+    private String genreId;
     private List<String> authorIds;
 }

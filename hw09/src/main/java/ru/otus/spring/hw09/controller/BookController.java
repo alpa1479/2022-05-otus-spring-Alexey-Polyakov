@@ -12,6 +12,7 @@ import ru.otus.spring.hw09.dto.SaveCommentDto;
 import ru.otus.spring.hw09.exceptions.NotFoundException;
 import ru.otus.spring.hw09.services.AuthorsService;
 import ru.otus.spring.hw09.services.BooksService;
+import ru.otus.spring.hw09.services.GenresService;
 
 @Controller
 @RequestMapping("/books")
@@ -20,6 +21,7 @@ public class BookController {
 
     private final BooksService booksService;
     private final AuthorsService authorsService;
+    private final GenresService genresService;
 
     @GetMapping
     public String booksPage(Model model) {
@@ -31,15 +33,17 @@ public class BookController {
     public String createBookPage(Model model) {
         model.addAttribute("book", new SaveBookDto());
         model.addAttribute("allAuthors", authorsService.findAll());
-        return "create-book";
+        model.addAttribute("allGenres", genresService.findAll());
+        return "book-form";
     }
 
     @GetMapping("/update")
     public String updateBookPage(@RequestParam(value = "id") String id, Model model) {
         model.addAttribute("book", booksService.findById(id).orElseThrow(NotFoundException::new));
         model.addAttribute("allAuthors", authorsService.findAll());
+        model.addAttribute("allGenres", genresService.findAll());
         model.addAttribute("comment", new SaveCommentDto());
-        return "update-book";
+        return "book-form";
     }
 
     @PostMapping("/create")

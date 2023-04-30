@@ -21,7 +21,7 @@ public class BookToSaveBookDtoConverter implements Converter<Book, SaveBookDto> 
         return SaveBookDto.builder()
                 .id(book.getId())
                 .title(book.getTitle())
-                .genreName(book.getGenreName())
+                .genreId(book.getGenreId())
                 .authorIds(book.getAuthorIds())
                 .build();
     }
