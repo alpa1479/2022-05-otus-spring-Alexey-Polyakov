@@ -20,6 +20,8 @@
         <module>hw08</module>
         <module>hw09</module>
         <module>hw10/backend</module>
+        <module>hw11/backend</module>
+        <module>hw12</module>
         <module>hw13</module>
     </modules>
 
@@ -33,6 +35,8 @@
         <commons-collections4.version>4.4</commons-collections4.version>
         <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
         <mongock.version>4.1.17</mongock.version>
+        <io.mongock.version>5.2.2</io.mongock.version>
+        <mongodb.version>4.9.0</mongodb.version>
     </properties>
 
     <dependencyManagement>
