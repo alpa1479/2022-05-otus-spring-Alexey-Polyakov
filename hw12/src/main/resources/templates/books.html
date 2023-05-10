@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Library</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          crossorigin="anonymous">
+</head>
+
+<body class="bg-light">
+<div class="container mt-5">
+    <h3 class="mb-3 d-inline">Books in library</h3>
+    <a class="btn btn-primary float-right mb-2" th:if="${#authorization.expression('isAuthenticated()')}"
+       th:href="@{/logout}">Logout</a>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th>Identifier</th>
+            <th>Title</th>
+            <th>Genre</th>
+            <th>Authors</th>
+            <th>Comments</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book : ${books}">
+            <td th:text="${book.id}"></td>
+            <td th:text="${book.title}"></td>
+            <td th:text="${book.genre.name}"></td>
+            <td>
+                <div th:each="author : ${book.authors}">
+                    <p th:text="${author.name}"></p>
+                </div>
+            </td>
+            <td>
+                <div th:each="comment : ${book.comments}">
+                    <p th:text="${comment.text}"></p>
+                </div>
+            </td>
+            <td>
+                <a class="btn btn-primary btn-sm mr-1" th:href="@{/books/update(id=${book.id})}">Edit</a>
+                <form th:action="@{/books/comments/delete}" method="post" class="d-inline">
+                    <input type="hidden" th:value="${book.id}" name="id"/>
+                    <button type="submit" class="btn btn-warning btn-sm mt-1">Delete comments</button>
+                </form>
+                <form th:action="@{/books/delete}" method="post" class="d-inline">
+                    <input type="hidden" th:value="${book.id}" name="id"/>
+                    <button type="submit" class="btn btn-danger btn-sm mt-1">Delete</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-success" th:href="@{/books/create}">Add book</a>
+</div>
+</body>
+
+</html>

@@ -21,6 +21,7 @@
         <module>hw09</module>
         <module>hw10/backend</module>
         <module>hw11/backend</module>
+        <module>hw12</module>
     </modules>
 
     <properties>
