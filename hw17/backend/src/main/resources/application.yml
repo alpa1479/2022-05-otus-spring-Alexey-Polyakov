@@ -1,0 +1,22 @@
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      username: usr
+      password: pwd
+      database: library
+      authentication-database: admin
+
+mongock:
+  change-logs-scan-package:
+    - ru.otus.spring.hw17.mongock.changelog
+
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          mongodb:
+            core:
+              MongoTemplate: DEBUG
