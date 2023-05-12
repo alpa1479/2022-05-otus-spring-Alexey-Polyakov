@@ -22,6 +22,7 @@
         <module>hw10/backend</module>
         <module>hw11/backend</module>
         <module>hw12</module>
+        <module>hw13</module>
     </modules>
 
     <properties>
