@@ -1,0 +1,7 @@
+input:read-only {
+    background: lightgray;
+}
+
+.row {
+    margin-top: 10px;
+}
