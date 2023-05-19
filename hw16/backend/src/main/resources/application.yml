@@ -1,0 +1,34 @@
+spring:
+  mongodb:
+    embedded:
+      version: 4.4.11
+  data:
+    rest:
+      base-path: /api
+      return-body-on-create: false
+      return-body-on-update: false
+    mongodb:
+      port: 8081
+      database: library
+
+mongock:
+  change-logs-scan-package:
+    - ru.otus.spring.hw16.mongock.changelog
+
+management:
+  endpoint:
+    health:
+      show-components: always
+      show-details: always
+
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        data:
+          mongodb:
+            core:
+              MongoTemplate: DEBUG
+  file:
+    name: hw-16.log
