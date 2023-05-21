@@ -1,0 +1,46 @@
+spring:
+  mongodb:
+    embedded:
+      version: 4.4.11
+  data:
+    mongodb:
+      port: 8081
+      database: library
+
+mongock:
+  change-logs-scan-package:
+    - ru.otus.spring.hw18.mongock.changelog
+
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          mongodb:
+            core:
+              MongoTemplate: DEBUG
+
+management:
+  endpoint:
+    health:
+      show-components: always
+      show-details: always
+  health:
+    circuitbreakers:
+      enabled: true
+
+# https://resilience4j.readme.io/docs/circuitbreaker
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        registerHealthIndicator: true
+    instances:
+      mongodb:
+        baseConfig: default
+        waitDurationInOpenState: 5s
+        maxWaitDurationInHalfOpenState: 10s
+        failureRateThreshold: 50
+        slidingWindowSize: 2
+        minimumNumberOfCalls: 2
+#        automaticTransitionFromOpenToHalfOpenEnabled: true

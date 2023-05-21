@@ -25,6 +25,7 @@
         <module>hw13</module>
         <module>hw16/backend</module>
         <module>hw17/backend</module>
+        <module>hw18</module>
     </modules>
 
     <properties>
@@ -39,6 +40,7 @@
         <mongock.version>4.1.17</mongock.version>
         <io.mongock.version>5.2.2</io.mongock.version>
         <mongodb.version>4.9.0</mongodb.version>
+        <resilience4j.version>2.0.2</resilience4j.version>
     </properties>
 
     <dependencyManagement>
